@@ -1,5 +1,5 @@
-from flask import request, jsonify
 from ..model.UserModel import UserModel
+from flask import jsonify
 
 
 class UserRepository:
@@ -8,16 +8,17 @@ class UserRepository:
     @staticmethod
     def getAll():
         users = UserModel.query.all()
-        return [user.as_dict() for user in users]
+        return [user.to_dict() for user in users]
+    
+    @staticmethod
+    def find_by_email(email):
+        return UserModel.find_by_email(email)
     
     
     @staticmethod
-    def postUser(user):
-        verify_user_email = UserModel.find_by_email(user['email'])
-        if(verify_user_email):
-            return {"message": "User cannot be created"}, 400
-        new_user  = UserModel.create(user['name'], user['email'], user['password'])
-        return {"message": "User created successfully", "user": {"name": new_user.name, "email": new_user.email}}, 201
+    def postUser(name, email, password):
+        new_user  = UserModel.create(name, email, password)
+        return jsonify({"message": "User created successfully", "user": {"name": new_user}}), 201
 
 
     @staticmethod
