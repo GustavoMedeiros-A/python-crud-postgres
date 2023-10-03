@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request, make_response
 from ..utils import helpers
 
-from ..service.UserService import UserService
+from ..service.user_service import UserService
 
 
 blueprint = Blueprint('users', __name__)
@@ -25,10 +25,9 @@ def logout():
 
 
 @blueprint.get("/api/users")
-@helpers.token_required
-def getUser(current_user):
+def getUser():
     users = UserService.getAllUsers()
-    return jsonify(users)
+    return jsonify(users), 200
 
 @blueprint.post("/api/users")
 @helpers.token_required

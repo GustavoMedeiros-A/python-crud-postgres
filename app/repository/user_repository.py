@@ -1,4 +1,4 @@
-from ..model.UserModel import UserModel
+from ..model.user_model import UserModel
 from flask import jsonify
 
 

@@ -1,0 +1,11 @@
+bcrypt
+Flask
+Flask-Bcrypt
+Flask-JWT-Extended
+Flask-Migrate
+Flask-PyMongo
+Flask-SQLAlchemy
+Flask-RESTful
+JWT
+pymongo
+SQLAlchemy

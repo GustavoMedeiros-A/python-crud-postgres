@@ -21,10 +21,10 @@ def create_app(test_config: Optional[TypingMapping[str, Any]] = None) -> Flask:
 
 
     from .controllers import (
-        UserController
+        user_controller
     )
 
-    app.register_blueprint(UserController.blueprint)
+    app.register_blueprint(user_controller.blueprint)
 
 
     return app

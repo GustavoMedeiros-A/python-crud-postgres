@@ -1,4 +1,4 @@
-from ..repository.UserRepository import UserRepository
+from ..repository.user_repository import UserRepository
 from werkzeug.security import generate_password_hash
 
 

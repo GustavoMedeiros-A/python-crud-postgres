@@ -1,6 +1,6 @@
 from functools import wraps
 from flask import request, jsonify, make_response
-from ..repository.UserRepository import UserRepository
+from ..repository.user_repository import UserRepository
 from werkzeug.security import check_password_hash
 from datetime import datetime, timedelta
 from .config import SECRET_KEY
